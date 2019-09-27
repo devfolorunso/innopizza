@@ -1,0 +1,21 @@
+
+body{
+	margin :0px;
+}
+.slider{
+	background:url(../media/pizza-background.jpg);
+	background-position:center;
+	background-size:cover;
+	background-repeat:no-repeat;
+	height: 100%;
+}
+
+.overlay{
+	background-color:rgb(28, 131, 169,0.4);
+}
+
+.footer{
+	background-color: #111;
+	padding: 5px;
+	color:#eff;
+}
