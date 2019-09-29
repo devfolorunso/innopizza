@@ -12,10 +12,12 @@ require('./bootstrap');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-require('./components/Navbar');
-require('./components/Footer');
 
-require('./components/Slider');
-require('./components/Catalogue');
+require('./components/PizzaApp');
+require('./components/Navbar');
 require('./components/Pizzas');
 require('./components/Pizza');
+require('./components/Menu');
+require('./components/Footer');
+require('./components/AdminApp');
+require('./components/AddCategory');

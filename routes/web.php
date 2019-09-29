@@ -5,21 +5,21 @@
 | Web Routes
 |--------------------------------------------------------------------------
 |
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
 */
+// Add pizza
+Route::Post('admin/addpizza', 'PizzaController@store');
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Display views
+Route::get('Pizzas', 'PizzaController@index');
+Route::get('admin', 'AdminController@index');
 
 
-Route::get('/add/create', 'PizzaController@create');
+// Display admin forms
+Route::get('admin/addpizza', 'PizzaController@create');
+Route::get('admin/category',  'AdminController@categories');
 
-Route::post('/add', 'PizzaController@store');
 
-Auth::routes();
+// Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/home', 'HomeController@index')->name('home');
+// React Router Path
+Route::view('/{path?}', 'welcome');

@@ -1,36 +1,43 @@
 import React, { Component } from 'react';
-import { Card, Button } from 'react-bootstrap';
-import ReactDOM from 'react-dom';
+import { Grid, Image, Button, Segment, Header } from 'semantic-ui-react';
+import { formatPrice } from '../formatcurrency';
+
+// import { Card, Button } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 
 
 
 
-class Pizza extends Component{
-    render(){ 
-        return (
-            <div className="col-md-3 p-2">
-				<Card className="tw-bg-gray-100">
-				  <Card.Img variant="top" src={`/storage/${this.props.pizza.image}`} />
-				  <Card.Body>
-				    <Card.Title>{ this.props.pizza.name }</Card.Title>
-				    <Card.Text>{ this.props.pizza.description }</Card.Text>
-				  </Card.Body>
-				</Card>
-            </div>
-        );
-    }
+class Pizza extends Component {
+	static propTypes = {
+		addToOrder: PropTypes.func.isRequired
+	}
+
+	render() {
+		return (
+			<Grid.Column mobile={5} tablet={8} computer={5}>
+				<Segment id='pizza-card' raised>
+					<Image src={`/storage/${this.props.pizza.image}`} />
+					<Header as='h3'>{this.props.pizza.name}</Header>
+					<p>{this.props.pizza.description}</p>
+					<div id='pizza-order-info'>
+						<Header as='h3'>{formatPrice(this.props.pizza.amount)}</Header>
+						<p>
+							<Button onClick={() => this.props.addToOrder(this.props.pizza.index)} color='teal'>Add to order</Button>
+						</p>
+					</div>
+				</Segment>
+			</Grid.Column>
+
+		)
+	}
 }
 
 
 
 //propTypes
 Pizza.propTypes = {
-	pizza: PropTypes.object.isRequired
+	pizza: PropTypes.object.isRequired,
 }
 
 export default Pizza;
-
-// if (document.getElementById('pizza')) {
-//     ReactDOM.render(<Pizza />, document.getElementById('pizza'));
-// }
