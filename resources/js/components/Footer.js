@@ -1,18 +1,12 @@
-import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
+import React from 'react';
+import { Menu } from 'semantic-ui-react';
 
-class Footer extends Component{
-    render(){ 
-        return (
-    <div class="footer">
-        <p>&copy; 2019  innoPizza<span role='img' aria-label='pizza'> 🍕🍕🍕 Built by <a href='http://github.com/afolorunso/' target="_blank" rel="noopener noreferrer">Folorunso Adesanya</a></span></p>
-    </div>
-    )
-
-    }
-}
+const Footer = () => (
+  <Menu fluid widths={1} fixed='bottom' id='footer'>
+    <Menu.Item>
+      <p>© 2019 innoPizza<span role='img' aria-label='pizza'> ❤️🍕🍕 Built by <a href='https://innoscripta.com/' target="_blank" rel="noopener noreferrer">innoPizza</a></span></p>
+    </Menu.Item>
+  </Menu>
+);
 
 export default Footer;
-if (document.getElementById('footer')) {
-    ReactDOM.render(<Footer />, document.getElementById('footer'));
-}

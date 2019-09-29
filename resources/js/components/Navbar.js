@@ -1,32 +1,29 @@
 import React, { Component } from 'react';
-import { Navbar } from 'react-bootstrap';
-import ReactDOM from 'react-dom';
+import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import { Menu, Icon, Container } from 'semantic-ui-react';
+import { formatPrice } from '../formatcurrency';
 
+class Navbar extends Component{
 
-class NavbarComponent extends Component{
-    render(){ 
-        return (
-            <div>
+  static propTypes = {
+    orderTotal: PropTypes.number
+  }
 
-                    <Navbar.Brand href="#home" className="font-weight-bold xl:tw-ml-20">
-                      <img
-                        alt=""
-                        src="/media/logo.png"
-                        width="50"
-                        height="50"
-                        className="d-inline-block align-center"
-                      />
-                      {' innoPizza'}
-                    </Navbar.Brand>
-
-            
-            </div>
-        );
-    }   
+  render(){
+    return(
+      <Menu fixed='top' borderless id='navbar'>
+        <Container>
+          <Menu.Item as={Link} to='/menu' id='navbar-header'>innoPizza</Menu.Item>
+          <Menu.Item id='navbar-total' position='right'>
+            <Icon name='cart'/>
+            {formatPrice(this.props.orderTotal)}
+            {this.props.children}
+          </Menu.Item>
+        </Container>
+      </Menu>
+    )
+  }
 }
 
-export default NavbarComponent;
-
-if (document.getElementById('navbar')) {
-    ReactDOM.render(<NavbarComponent />, document.getElementById('navbar'));
-}
+export default Navbar;

@@ -6,12 +6,12 @@ use App\Pizza;
 use App\Category;
 use App\Http\Requests;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Input;
 use Intervention\Image\Facades\Image;
 use App\Http\Resources\PizzaResource;
 
 class PizzaController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
@@ -20,7 +20,6 @@ class PizzaController extends Controller
     public function index()
     {
         $pizzas = Pizza::all();
-
         return PizzaResource::collection($pizzas);
     }
 
@@ -32,8 +31,7 @@ class PizzaController extends Controller
     public function create()
     {
         $categories = Category::with('pizzas')->orderBy('title', 'asc')->get();
-
-        return view('create', compact('categories'));
+        return view('admin.addpizza', compact('categories'));
     }
 
     /**
@@ -51,28 +49,22 @@ class PizzaController extends Controller
             'amount' => 'required',
             'image' => ['required','image','max:1999'],
         ]);
-        $file = Input::file('image')->getRealPath();
 
         // $imagePath = $file->store('pizza','public');
 
-        $imagePath = $file->store('pizza','public');
-
-        $image = Image::make(public_path("storage/{$imagePath}"))->fit(200,200);
+        $pizzaPath = request('image')->store('pizza','public');
         
-        $image->save();
-
+        $image = Image::make(public_path("storage/{$pizzaPath}"))->fit(600,300)->save();
+        
         Pizza::create([
             'name' => $data['name'],
             'description' => $data['description'],
             'category_id' => $data['category'],
             'amount' => $data['amount'],
-            'image' => $imagePath,
+            'image' => $pizzaPath,
         ]);
-
-        // $authId = auth()->user()->id;
-
-        // session()->flash('status','You successfully created a post');
-
+        
+        // return response()->json('Pizza created!');
         return back();
     }
 
@@ -82,10 +74,12 @@ class PizzaController extends Controller
      * @param  \App\Pizza  $pizza
      * @return \Illuminate\Http\Response
      */
-    public function show(Pizza $pizza)
+
+     public function show(Pizza $pizza)
     {
         //
     }
+
 
     /**
      * Show the form for editing the specified resource.
