@@ -56,7 +56,7 @@ class AdminController extends Controller
         // return response()->json($allcategories, 200)
         //           ->header('Content-Type: applicaon/json');
         // return CategoryResource::collection($allcategories);
-        // return view('admin.category');    
+        return view('admin.category');    
     }
 
     /**

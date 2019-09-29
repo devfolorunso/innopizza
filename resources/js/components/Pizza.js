@@ -23,7 +23,7 @@ class Pizza extends Component {
 					<div id='pizza-order-info'>
 						<Header as='h3'>{formatPrice(this.props.pizza.amount)}</Header>
 						<p>
-							<Button onClick={() => this.props.addToOrder(this.props.pizza.index)} color='teal'>Add to order</Button>
+							<Button onClick={() => this.props.addToOrder(this.props.pizza.id)} color='teal'>Add to order</Button>
 						</p>
 					</div>
 				</Segment>

@@ -4,7 +4,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import Home from './Home';
 import Menu from './Menu';
-import Pizzas from './Pizzas';
+import Pizza from './Pizza';
 
 class PizzaApp extends Component {
 
@@ -20,23 +20,23 @@ class PizzaApp extends Component {
     });
   }
 
-  addToOrder = (key) => {
+  addToOrder = (pizza) => {
     const order = { ...this.state.order };
     order[key] = order[key] + 1 || 1;
-    const newTotal = this.state.orderTotal + Pizzas[key].amount;
+    const newTotal = this.state.orderTotal + Pizza.amount;
 
     this.setState({
       order: order,
       orderTotal: newTotal
     });
   }
-  removeFromOrder = (key) => {
+  removeFromOrder = (pizza) => {
     const order = { ...this.state.order };
     order[key] = order[key] - 1;
-    let newTotal = this.state.orderTotal - (PizzaList[key].price);
+    let newTotal = this.state.orderTotal - (pizza.amount);
 
     if (order[key] === 0) {
-      newTotal = this.state.orderTotal - PizzaList[key].price;
+      newTotal = this.state.orderTotal - pizza.amount;
       delete order[key];
     }
 
