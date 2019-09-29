@@ -54,7 +54,7 @@ class Home extends Component {
                 <Form.Input placeholder='Enter your postcode' name='postcode' onChange={this.handleChange} value={this.state.postcode} width={4} required id='home-form'/>
                 <Form.Button type='submit' color='teal' size='large' width={4} id='home-btn'>Get Started</Form.Button>
               </Form.Group>
-              <Label color='orange' size='medium' id='home-label'><span role='img' aria-label='point-right'>👉</span> Hint: We only deliver to postcode 'innoPizza' right now</Label>
+              <Label color='orange' size='medium' id='home-label'><span role='img' aria-label='point-right'>👉</span> Hint: We only deliver to postcode 'INP219' right now</Label>
             </Form>
           </Container>
         </Container>
