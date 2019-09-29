@@ -182,7 +182,7 @@ class AddCategory extends Component {
                                                 <input type="text" id="title"
                                                     className={`form-control ${this.hasErrorFor('title') ? 'is-invalid' : 'is-valid'}`}
                                                     name="title"
-                                                    value={this.state.title}
+                                                       value={this.state.title}
                                                     onChange={this.OnChange.bind(this)}
                                                 />
                                                 {this.renderErrorFor('title')}
@@ -214,7 +214,7 @@ class AddCategory extends Component {
                                     </tr>
                                 </thead> 
                                 <tbody>
-                                    {categories.map(category => (
+                                    {/* {categories.map(category => (
                                         <tr category = {category.title} key={category.id}>
 
                                             <td>{category.title}</td>
@@ -225,7 +225,7 @@ class AddCategory extends Component {
                                                 </form>
                                             </td>
                                         </tr>
-                                    ))}
+                                    ))} */}
                                 </tbody>
                             </table>
                             </div>

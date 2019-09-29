@@ -52,6 +52,7 @@ class AdminController extends Controller
     //API fetch all categories || render category view
     public function categories(){
         $allcategories = Category::all();
+        // return $allcategories;
         // return response()->json($allcategories, 200)
         //           ->header('Content-Type: applicaon/json');
         // return CategoryResource::collection($allcategories);
