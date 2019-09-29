@@ -92,7 +92,7 @@ class AddCategory extends Component {
 
                     <hr className="sidebar-divider" />
                     <li className="nav-item">
-                        <a className='nav-link' href='admin/addpizza'>
+                        <a className='nav-link' href='/admin/addpizza'>
                             <i className="fas fa-fw fa-tachometer-alt"></i>
                             <span>Add Pizza</span>
                         </a>
@@ -214,7 +214,7 @@ class AddCategory extends Component {
                                     </tr>
                                 </thead> 
                                 <tbody>
-                                    {/* {categories.map(category => (
+                                    {categories.map(category => (
                                         <tr category = {category.title} key={category.id}>
 
                                             <td>{category.title}</td>
@@ -225,7 +225,7 @@ class AddCategory extends Component {
                                                 </form>
                                             </td>
                                         </tr>
-                                    ))} */}
+                                    ))}
                                 </tbody>
                             </table>
                             </div>

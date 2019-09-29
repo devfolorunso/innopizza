@@ -16,7 +16,8 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/admin.css') }}" rel="stylesheet">
    <link rel="stylesheet" href="{{ asset('vendor/fontawesome/css/all.min.css') }}">
-    
+   <link rel="icon" type="image/png" href="https://img.icons8.com/ios/50/000000/favorite-cart.png">
+  
 </head>
 <body>
 
