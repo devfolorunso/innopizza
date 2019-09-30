@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { Link  } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { Header, Container, Button } from 'semantic-ui-react';
+import { Header,Grid, Container, Button } from 'semantic-ui-react';
 
 import Navbar from './Navbar';
 import Footer from './Footer';
@@ -37,7 +37,9 @@ class Menu extends Component{
         <p id='menu-banner-text'>Free delivery for orders over £12</p>
       </Container>
       <Container id='menu-pizza-container'>
+			<Grid stackable columns={2}>
             <Pizzas pizzas={this.state.pizzas} />
+            </Grid>
       </Container>
     </Container>
     <Footer />

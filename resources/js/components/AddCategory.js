@@ -9,7 +9,7 @@ class AddCategory extends Component {
         this.state = {
             title: '',
             errors: [],
-            categories: []
+            // categories: []
         }
         this.OnChange = this.OnChange.bind(this)
         this.handleCreateNewCategory = this.handleCreateNewCategory.bind(this)
@@ -63,13 +63,13 @@ class AddCategory extends Component {
 
     }
 
-    componentDidMount() {
-        axios.get('/api/admin/categories')
-            .then(res => this.setState({ categories: res.data }))
-        }
+    // componentDidMount() {
+    //     axios.get('/api/admin/categories')
+    //         .then(res => this.setState({ categories: res.data }))
+    //     }
 
     render() {
-        const { categories } = this.state
+        // const { categories } = this.state
 
         return (
             <div id="wrapper">
@@ -214,7 +214,7 @@ class AddCategory extends Component {
                                     </tr>
                                 </thead> 
                                 <tbody>
-                                    {categories.map(category => (
+                                    {/* {categories.map(category => (
                                         <tr category = {category.title} key={category.id}>
 
                                             <td>{category.title}</td>
@@ -225,7 +225,7 @@ class AddCategory extends Component {
                                                 </form>
                                             </td>
                                         </tr>
-                                    ))}
+                                    ))} */}
                                 </tbody>
                             </table>
                             </div>

@@ -6,7 +6,7 @@ use App\Pizza;
 use App\Category;
 use App\Http\Requests;
 use Illuminate\Http\Request;
-// use App\Http\Resources\CategoryResource;
+use App\Http\Resources\CategoryResource;
 
 class AdminController extends Controller
 {
@@ -52,10 +52,9 @@ class AdminController extends Controller
     //API fetch all categories || render category view
     public function categories(){
         $allcategories = Category::all();
-        return $allcategories;
         // return response()->json($allcategories, 200)
         //           ->header('Content-Type: applicaon/json');
-        // return CategoryResource::collection($allcategories);
+        // return CategoryResource($allcategories);
         return view('admin.category');    
     }
 

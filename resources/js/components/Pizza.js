@@ -17,8 +17,8 @@ class Pizza extends Component {
 		return (
 			<Grid.Column mobile={5} tablet={8} computer={5}>
 				<Segment id='pizza-card' raised>
+				<Header as='h3'>{this.props.pizza.name}</Header>
 					<Image src={`/storage/${this.props.pizza.image}`} />
-					<Header as='h3'>{this.props.pizza.name}</Header>
 					<p>{this.props.pizza.description}</p>
 					<div id='pizza-order-info'>
 						<Header as='h3'>{formatPrice(this.props.pizza.amount)}</Header>
@@ -28,6 +28,8 @@ class Pizza extends Component {
 					</div>
 				</Segment>
 			</Grid.Column>
+		
+
 
 		)
 	}
