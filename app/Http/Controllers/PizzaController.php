@@ -20,7 +20,8 @@ class PizzaController extends Controller
     public function index()
     {
         $pizzas = Pizza::all();
-        return PizzaResource::collection($pizzas);
+        return response($pizzas);
+        // return PizzaResource::collection($pizzas);
     }
 
     /**
