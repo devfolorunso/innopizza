@@ -38,10 +38,13 @@
 @media only screen and (max-width: 600px) {
 
   #home-page {
-    background: linear-gradient(to right, rgba(100,54,201,0.4) 0%, rgba(255,117,117,0.4) 100%),
-    url(/assets/pizza-background-mobile.jpg) no-repeat center center;
+    position: fixed;
+    top: 0;
     height: 100%;
     background-size: cover;
+    width: 100%;
+    background: linear-gradient(to right, rgba(100,54,201,0.4) 0%, rgba(255,117,117,0.4) 100%),
+    url(/assets/pizza-background-mobile.jpg) no-repeat center center;
 
   }
 
