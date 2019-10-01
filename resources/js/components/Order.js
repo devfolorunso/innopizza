@@ -1,51 +1,120 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { Grid, Image, Segment, Icon } from 'semantic-ui-react';
-import Pizzas from './Pizzas';
+import { Button, Header, Menu, Icon, Label, Image, Modal } from 'semantic-ui-react'
+import StripeCheckout from 'react-stripe-checkout';
 import { formatPrice } from '../formatcurrency';
 
+
+
 class Order extends Component {
-
-  static propTypes = {
-    addToOrder: PropTypes.func.isRequired,
-    removeFromOrder: PropTypes.func.isRequired,
-    order: PropTypes.array
+  constructor(props) {
+    super(props);
   }
 
-  renderOrder = (key) => {
-    const pizza = Pizzas[key];
-    const count = this.props.order[key];
-
-    return(
-      <Segment raised key={key}>
-        <Grid>
-          <Grid.Row>
-            <Grid.Column width={4}>
-              <Image src={pizza.image} />
-            </Grid.Column>
-            <Grid.Column width={12}>
-              <p id='order-pizza-name'>{pizza.name}</p>
-              <p><strong>{formatPrice(pizza.price)}</strong></p>
-              <p>
-                <Icon name='minus' circular id="order-minus" onClick={() => this.props.removeFromOrder(key)} /> Quantity: {count}
-                <Icon name='plus' circular id="order-plus" onClick={() => this.props.addToOrder(key)} />
-              </p>
-            </Grid.Column>
-          </Grid.Row>
-        </Grid>
-      </Segment>
-    )
+  state = {
+    quantity: 1,
+    quantityMessage: '',
+    totalAmount: 0,
   }
 
-  render(){
-    const orderIds = Object.keys(this.props.order);
 
-    return(
+  IncreasePizza = () => {
+    this.setState({ quantity: this.state.quantity + 1 });
+    this.setState({ quantityMessage: '' });
+    this.setState({ totalAmount: (this.state.quantity + 1) * this.props.order.amount });
+  }
+
+  Decrement = () => {
+    this.setState({ quantity: this.state.quantity - 1 })
+    this.setState({ totalAmount: (this.state.quantity - 1) * this.props.order.amount });
+  }
+
+  ReducePizza = () => {
+    (this.state.quantity === 1) ? this.setState({ quantityMessage: 'Sorry, You cannot buy Zero [0] item.' }) :
+      this.Decrement();
+  }
+
+  onToken = (token) => {
+    console.log(token);
+    JSON.stringify(token);
+    alert(`Payment Sucessful`);
+  }
+  render() {
+    return (
       <div>
-          {orderIds.map(this.renderOrder)}
+
+        <Modal  {...this.props} size='large'>
+          <Modal.Header>
+            <Label attached='top'>Continue with your order...</Label>
+          </Modal.Header>
+
+
+          <Modal.Content image>
+            <Image wrapped size='medium' src={`/storage/${this.props.order.image}`} />
+
+
+            <Modal.Description>
+              <Label as='a' color='teal' ribbon='right'>
+                <Header>{this.props.order.name}</Header>
+              </Label>
+
+              <div id="modal-pizzza-details">
+                <p><b>Item Description:</b> {this.props.order.description} </p>
+                <p><b>Item Price/Quantity:</b> <Label as='a' color='teal' tag>{formatPrice(this.props.order.amount)} </Label> </p>
+                <p><b>Total Price:</b>  <Label as='a' color='teal' tag>{formatPrice(this.state.totalAmount)}</Label> </p>
+              </div>
+              
+              <Menu compact>
+                <Menu.Item as='a'>
+                  <Icon name='cart' /> Quantity
+                  <Label color='red' floating>
+                    {this.state.quantity}
+                  </Label>
+                </Menu.Item>
+              </Menu>
+
+              <Button color='violet'
+                onClick={this.IncreasePizza}> + </Button>
+              
+              <Button color='red'
+                onClick={this.ReducePizza}> - </Button>
+            
+              {this.state.quantityMessage}
+
+              <StripeCheckout
+                token={this.onToken}
+                stripeKey="pk_test_AiMnY5ukNmggPuQpkMcQ3RZ6002qerydEm"
+                name="innoPizza"
+                description="dein lieblings at Your doorstep"
+                image="/media/logo.png"
+                panelLabel="Finalize Payment"
+                amount={this.state.totalAmount * 100}
+                currency="USD"
+                locale="en"
+                shippingAddress={true}
+                billingAddress={true}>
+
+
+                <Button primary>
+                  Complete Order <Icon name='cart arrow down' />
+                </Button>
+
+
+              </StripeCheckout>
+            </Modal.Description>
+          </Modal.Content>
+
+          <Modal.Actions>
+            <Button onClick={this.props.close} color='red' >
+              Cancel Order
+                  </Button>
+          </Modal.Actions>
+
+        </Modal>
       </div>
     );
   }
 }
+
+
 
 export default Order;

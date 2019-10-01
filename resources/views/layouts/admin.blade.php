@@ -11,6 +11,7 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -30,6 +31,6 @@
 <!-- JS SCRIPTS FOR ADMIN DASHBOARD. -->
 <script src="{{ asset('js/app.js') }}"></script>
 <script src="{{ asset('js/admin.js') }}" ></script>
-<script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
+
 </body>
 </html>

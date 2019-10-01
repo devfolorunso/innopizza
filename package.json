@@ -30,6 +30,7 @@
         "heroku": "^7.30.1",
         "react-bootstrap": "^1.0.0-beta.12",
         "react-router-dom": "^5.0.1",
+        "react-stripe-checkout": "^2.6.3",
         "semantic-ui-react": "^0.88.1"
     }
 }

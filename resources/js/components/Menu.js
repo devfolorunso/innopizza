@@ -13,11 +13,11 @@ class Menu extends Component{
   state = {
     pizzas: []
   }
-  static propTypes = {
-    order: PropTypes.array,
-    orderTotal: PropTypes.number,
-    addToOrder: PropTypes.func.isRequired
-  }
+  // static propTypes = {
+  //   order: PropTypes.array,
+  //   orderTotal: PropTypes.number,
+  //   addToOrder: PropTypes.func.isRequired
+  // }
 
   componentDidMount(){
     axios.get('/api/pizzas')
@@ -28,13 +28,11 @@ class Menu extends Component{
      
       return (
       <div>  
-        <Navbar  order={this.props.order} orderTotal={this.props.orderTotal}>
-      {this.props.orderTotal > 0 && <Button as={Link} to='/cart' color='teal' id='menu-checkout-btn'>Checkout</Button>}
-        </Navbar>
+        <Navbar />
         <Container id='page-container'>
-      <Header as='h1' id='page-header'>Pizza Selection</Header>
+      <Header as='h1' id='page-header'>Select Your Favourite</Header>
       <Container textAlign='center' id='menu-free-banner'>
-        <p id='menu-banner-text'>Free delivery for orders over £12</p>
+        <p id='menu-banner-text'>Free delivery within München  for orders over €12</p>
       </Container>
       <Container id='menu-pizza-container'>
 			<Grid stackable columns={2}>

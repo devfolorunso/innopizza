@@ -32,32 +32,21 @@ class AdminController extends Controller
     //  Render all categories to the category view.
     public function create()
     {
-        
+        $pizzas = Pizza::all();
+        return view('admin.addpizza', compact('pizzas'));
+
     }
 
 
-    // Add category to database
-    public function category(Request $request){
-        
-        $input = request()->validate([
-            'title' => ['required','min:5']
-        ]);
-            Category::create([
-                'title' => $input['title']
-            ]);
-            
-    }
 
 
-    //API fetch all categories || render category view
-    public function categories(){
+    // render category view
+    public function categories()
+    {
         $allcategories = Category::all();
-        // return response()->json($allcategories, 200)
-        //           ->header('Content-Type: applicaon/json');
-        // return CategoryResource($allcategories);
-        return view('admin.category');    
+        return view('admin.category', compact('allcategories'));    
     }
-
+  
     /**
      * Store a newly created resource in storage.
      *
@@ -67,6 +56,14 @@ class AdminController extends Controller
     public function store(Request $request)
     {
         //
+        $input = request()->validate([
+            'title' => ['required','min:5']
+        ]);
+            Category::create([
+                'title' => $input['title']
+            ]);
+
+            return back();
     }
 
     /**
@@ -112,5 +109,10 @@ class AdminController extends Controller
     public function destroy($id)
     {
         //
+        Category::find($id)->delete($id);
+        Pizza::find($id)->delete($id);
+        return response()->json([
+         'success' => 'Record deleted successfully!'
+        ]);
     }
 }

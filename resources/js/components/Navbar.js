@@ -6,20 +6,11 @@ import { formatPrice } from '../formatcurrency';
 
 class Navbar extends Component{
 
-  static propTypes = {
-    orderTotal: PropTypes.number
-  }
-
   render(){
     return(
       <Menu fixed='top' borderless id='navbar'>
         <Container>
           <Menu.Item as={Link} to='/menu' id='navbar-header'>innoPizza</Menu.Item>
-          <Menu.Item id='navbar-total' position='right'>
-            <Icon name='cart'/>
-            {formatPrice(this.props.orderTotal)}
-            {this.props.children}
-          </Menu.Item>
         </Container>
       </Menu>
     )

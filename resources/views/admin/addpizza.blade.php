@@ -87,35 +87,35 @@
 
                 <hr width="100%" />
 
-                <div class="row mt-5 justify-content-center">
+                <div class="row mt-5  jumbotron justify-content-center">
 
-                    <form action="/admin/addpizza" method="POST" class="needs-validation form" enctype="multipart/form-data"
-                        novalidate>
+                    <form action="/admin/addpizza" method="POST" class="needs-validation form"
+                        enctype="multipart/form-data" novalidate>
                         @csrf
                         <div class="form-row">
                             <div class="form-group col-md-6">
-                            
-                            <label for="name">{{ __('Pizzas Name') }}</label>
-                            <input id="name" name="name" type="text" class="form-control" autocomplete="name"
-                                autofocus required />
-                            <div class="valid-feedback">
-                                Looks good!
-                            </div>
-                            <div class="invalid-feedback">
-                                Pizza name cannot be empty!
-                            </div>
+
+                                <label for="name">{{ __('Pizzas Name') }}</label>
+                                <input id="name" name="name" type="text" class="form-control" autocomplete="name"
+                                    autofocus required />
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                                <div class="invalid-feedback">
+                                    Pizza name cannot be empty!
+                                </div>
                             </div>
 
                             <div class="form-group col-md-6">
-                            <label for="amount">{{ __('Price') }}</label>
-                            <input id="amount" name="amount" type="text" class="form-control"
-                                autocomplete="amount" autofocus rows="5" required />
-                            <div class="valid-feedback">
-                                Looks good!
-                            </div>
-                            <div class="invalid-feedback">
-                                Amount field cannot be empty!
-                            </div>
+                                <label for="amount">{{ __('Price') }}</label>
+                                <input id="amount" name="amount" type="text" class="form-control" autocomplete="amount"
+                                    autofocus rows="5" required />
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                                <div class="invalid-feedback">
+                                    Amount field cannot be empty!
+                                </div>
                             </div>
 
                         </div>
@@ -159,11 +159,10 @@
 
                         <div class="form-group">
 
-                            <label for="image" >Image</label>
+                            <label for="image">Image</label>
 
-                            <input type="file"
-                                class="form-control-file @error('image') is-invalid @enderror p-1" id="image"
-                                name="image">
+                            <input type="file" class="form-control-file @error('image') is-invalid @enderror p-1"
+                                id="image" name="image">
 
                             @error('image')
                             <span class="invalid-feedback" role="alert">
@@ -188,10 +187,48 @@
                     </form>
                 </div>
 
-                
+                <div class="row" id="content">
+                    @foreach ($pizzas as $pizza)
+                    <div class="col-md-4 mt-3 p-2">
+                        <div class="card py-2">
+                            <h4 class="card-title text-center">{{$pizza->name}}</h4>
+                            <img src="/storage/{{$pizza->image}}" class="card-img-top" alt="">
+                            <div class="card-body">
+                                <span class="float-right tag">£ {{$pizza->amount}}</span>
+                                <p class="card-text">{{$pizza->description}}</p>
+                                <span class="">{{ $pizza->created_at->format('l, M-Y @ H:i A') }}</span>
+                                <button class="rmpizza btn btn-outline-danger" id="del" data-id="{{ $pizza->id }}">
+                                    <i class="fas fa-fw fa-trash-alt"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    @endforeach
+                </div>
+
+                <script type="text/javascript" charset="utf-8">
+                $(document).ready(function() {
+                    $(".rmpizza").click(function() {
+                        var id = $(this).data("id");
+                        var token = $("meta[name='csrf-token']").attr("content");
+                        $.ajax({
+                            url: "/addpizza/" + id,
+                            type: 'DELETE',
+                            data: {
+                                "id": id,
+                                "_token": token,
+                            },
+
+                            success: function(data) {
+                                location.reload(); 
+                            }
+                        });
+                    });
+                });
+                </script>
+
             </div>
         </div>
-
     </div>
 </div>
 </div>

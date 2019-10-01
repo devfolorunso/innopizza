@@ -20,7 +20,6 @@ class PizzaController extends Controller
     public function index()
     {
         $pizzas = Pizza::all();
-        // return response($pizzas);
         return PizzaResource::collection($pizzas);
     }
 
@@ -32,7 +31,9 @@ class PizzaController extends Controller
     public function create()
     {
         $categories = Category::with('pizzas')->orderBy('title', 'asc')->get();
-        return view('admin.addpizza', compact('categories'));
+        $pizzas = Pizza::all();
+
+        return view('admin.addpizza', compact('categories' , 'pizzas'));
     }
 
     /**
@@ -111,8 +112,12 @@ class PizzaController extends Controller
      * @param  \App\Pizza  $pizza
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Pizza $pizza)
+    public function destroy($id)
     {
-        //
+         Pizza::find($id)->delete();
+        
+         return response()->json([
+          'success' => 'Record deleted successfully!'
+         ]);
     }
 }

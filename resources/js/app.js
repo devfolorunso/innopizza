@@ -20,4 +20,3 @@ require('./components/Pizza');
 require('./components/Menu');
 require('./components/Footer');
 require('./components/AdminApp');
-require('./components/AddCategory');

@@ -6,10 +6,13 @@
 }
 
 #home-page {
-  background: linear-gradient(to right, rgba(100,54,201,0.4) 0%, rgba(255,117,117,0.4) 100%),
-  url(../media/pizza-background.jpg) no-repeat center center;
+  position: fixed;
+  top: 0;
   height: 100%;
   background-size: cover;
+  width: 100%;
+  background: linear-gradient(to right, rgba(100,54,201,0.4) 0%, rgba(255,117,117,0.4) 100%),
+  url(../media/pizza-background.jpg) no-repeat center center;
 
 }
 
@@ -117,18 +120,6 @@
   margin-bottom: 2em;
 }
 
-#menu-total {
-  font-size: 1.2em;
-  margin-top: 2em;
-  padding-top: 1em;
-  padding-bottom: 1em;
-  text-align: right;
-}
-
-#menu-checkout-btn {
-  margin-left: 1em;
-  font-size: 0.8em;
-}
 
 #pizza-card {
   height: 32em;
@@ -137,115 +128,18 @@
   box-shadow: 12px 12px 0px -4px rgba(100,53,201,0.79);
 }
 
-#pizza-order-info {
+#modal-pizzza-details{
+  margin-top:1em;
+  padding: 2em;
+}
+
+#pizza-description{
+  text-align: justify;
+  margin-top:0.5em;
+  padding: 2em;
+}
+#pizza-order-btns{
   position: absolute;
-  bottom: 1em;
-  left: 1.2em;
-}
-
-#order-box {
-  width: 80%;
-}
-
-#order-plus,
-#order-minus {
-  cursor: pointer;
-}
-
-#order-plus {
-  margin-left: 1em;
-}
-
-#order-minus {
-  margin-right: 1em;
-}
-
-#order-pizza-name {
-  font-size: 1.2em;
-  font-weight: 700;
-}
-
-#cart-container {
-  padding-top: 3em;
-  padding-bottom: 3em;
-}
-
-#cart-empty-box {
-  margin-top: 8em;
-  text-align: center;
-}
-
-#cart-empty-text {
-  font-size: 1.5em;
-  margin-bottom: 3em;
-}
-
-#cart-header {
-  width: 80%;
-}
-
-#cart-menu-btn {
-  position: relative;
-  top: 1.2em;
-  left: 0.05em;
-}
-
-#cart-total {
-  text-align: right;
-  font-size: 1.15em;
-  margin-top: 2em;
-  margin-right: 0.1em;
-  padding-top: 1em;
-  padding-bottom: 1em;
-}
-
-#cart-checkout-btn,
-#cart-menu-btn {
-  margin-right: 0;
-  margin-bottom: 1em;
-}
-
-#checkout-customer-form,
-#checkout-subheader {
-  font-family: 'Quicksand', sans-serif;
-}
-
-input,
-.StripeElement {
-  display: block;
-  margin: 10px 0 20px 0;
-  max-width: 500px;
-  padding: 10px 14px;
-  font-size: 1em;
-  font-family: 'Quicksand', sans-serif;
-  box-shadow: rgba(50, 50, 93, 0.14902) 0px 1px 3px, rgba(0, 0, 0, 0.0196078) 0px 1px 0px;
-  border: 0;
-  outline: 0;
-  border-radius: 4px;
-  background: white;
-}
-
-#checkout-btn {
-  width: 100%;
-  margin-top: 0.8em;
-}
-
-#confirmation-container {
-  padding-bottom: 5em;
-}
-
-#confirmation-text {
-  text-align: center;
-  font-size: 1.3em;
-  margin-top: 2em;
-  margin-bottom: 2em;
-}
-
-#confirmation-img {
-  border-radius: 55%;
-  box-shadow: -2px 6px 28px 0px rgba(196,196,196,1);
-}
-
-#confirmation-new-btn {
-  margin-top: 3em;
+  bottom:2em;
+  left:4em;
 }

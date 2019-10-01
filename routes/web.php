@@ -6,16 +6,24 @@
 |--------------------------------------------------------------------------
 |
 */
-// Add pizza
-Route::Post('admin/addpizza', 'PizzaController@store');
 
-// Display views
+// Add pizza//
+Route::Post('admin/addpizza', 'PizzaController@store');
+Route::Post('admin/category', 'AdminController@store');
+
+
+// Display views//
 Route::get('Pizzas', 'PizzaController@index');
 Route::get('admin', 'AdminController@index');
 
-// Display admin forms
+// Display admin forms//
 Route::get('admin/addpizza', 'PizzaController@create');
+
 Route::get('admin/category',  'AdminController@categories');
 
-// React Router Path
+// Delete//
+Route::delete('/category/{id}', 'AdminController@destroy');
+Route::delete('/addpizza/{id}', 'PizzaController@destroy');
+
+// React Router Path//
 Route::view('/{path?}', 'welcome');
