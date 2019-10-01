@@ -6,7 +6,7 @@
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <meta name="theme-color" content="#dba4d8"/>
+    <meta name="theme-color" content="#325ca8"/>
     <title>{{ config('app.name', 'innoPizza') }}</title>
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
