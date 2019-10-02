@@ -192,7 +192,11 @@
                     <div class="col-md-4 mt-3 p-2">
                         <div class="card py-2">
                             <h4 class="card-title text-center">{{$pizza->name}}</h4>
-                            <img src="/storage/{{$pizza->image}}" class="card-img-top" alt="">
+                            @php
+                            $image = Storage::disk('s3')->url($pizza->image);
+                            @endphp
+                        
+                            <img src="{{$image}}" class="card-img-top" alt="">
                             <div class="card-body">
                                 <span class="float-right tag">£ {{$pizza->amount}}</span>
                                 <p class="card-text">{{$pizza->description}}</p>

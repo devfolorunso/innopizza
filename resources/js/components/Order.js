@@ -62,7 +62,7 @@ class Order extends Component {
                 <p><b>Item Price/Quantity:</b> <Label as='a' color='teal' tag>{formatPrice(this.props.order.amount)} </Label> </p>
                 <p><b>Total Price:</b>  <Label as='a' color='teal' tag>{formatPrice(this.state.totalAmount)}</Label> </p>
               </div>
-              
+
               <Menu compact>
                 <Menu.Item as='a'>
                   <Icon name='cart' /> Quantity
@@ -74,10 +74,10 @@ class Order extends Component {
 
               <Button color='violet'
                 onClick={this.IncreasePizza}> + </Button>
-              
+
               <Button color='red'
                 onClick={this.ReducePizza}> - </Button>
-            
+
               {this.state.quantityMessage}
 
               <StripeCheckout

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Container, Header, Form, Label, Modal, Button } from 'semantic-ui-react';
 
 class Home extends Component {
-    
+
   static propTypes = {
     updatePostcode: PropTypes.func.isRequired
   }
@@ -20,7 +20,7 @@ class Home extends Component {
   handlePostcodeSubmit = () => {
     const formattedPostcode = this.state.postcode.toUpperCase().replace(/\s/g, "");
 
-    if(formattedPostcode === 'INP219') {
+    if (formattedPostcode === 'INP219') {
       this.props.history.push('/Menu');
       this.setState({
         postcode: formattedPostcode
@@ -39,11 +39,11 @@ class Home extends Component {
       validPostcode: true
     });
   }
-//
- 
-  render(){
+  //
 
-    return(
+  render() {
+
+    return (
       <div id='home-page'>
         <Container >
           <Header as='h1' id="home-logo">innoPizza</Header>
@@ -51,7 +51,7 @@ class Home extends Component {
             <Header as='h1' id="home-header">Dein Lieblings, delivered to your doorstep</Header>
             <Form size='large' onSubmit={this.handlePostcodeSubmit} fluid='true'>
               <Form.Group >
-                <Form.Input placeholder='Enter your postcode' name='postcode' onChange={this.handleChange} value={this.state.postcode} width={4} required id='home-form'/>
+                <Form.Input placeholder='Enter your postcode' name='postcode' onChange={this.handleChange} value={this.state.postcode} width={4} required id='home-form' />
                 <Form.Button type='submit' color='teal' size='large' width={4} id='home-btn'>Get Started</Form.Button>
               </Form.Group>
               <Label color='orange' size='medium' id='home-label'><span role='img' aria-label='point-right'>👉</span> Hint: We only deliver to postcode 'INP219' right now</Label>
@@ -67,10 +67,10 @@ class Home extends Component {
           <Modal.Actions>
             <Button onClick={this.closeModal} color='violet'>Try a different postcode</Button>
           </Modal.Actions>
-       </Modal>
+        </Modal>
 
-     </div>
-     
+      </div>
+
     )
   }
 };

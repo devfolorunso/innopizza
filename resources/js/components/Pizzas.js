@@ -3,14 +3,14 @@ import PropTypes from 'prop-types';
 
 import Pizza from './Pizza';
 
-class Pizzas extends Component{
+class Pizzas extends Component {
     static propTypes = {
         addToOrder: PropTypes.func.isRequired
-      }
+    }
 
-    render(){ 
+    render() {
         return this.props.pizzas.map((pizza) => (
-            	<Pizza  key={ pizza.id } pizza={ pizza }   addToOrder={this.props.addToOrder}/>
+            <Pizza key={pizza.id} pizza={pizza} addToOrder={this.props.addToOrder} />
         ));
 
     }

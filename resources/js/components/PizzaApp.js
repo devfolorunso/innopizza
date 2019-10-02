@@ -9,7 +9,7 @@ class PizzaApp extends Component {
   state = {
     postcode: ''
   }
-  
+
   updatePostcode = (newPostcode) => {
     this.setState({
       postcode: newPostcode
@@ -24,7 +24,7 @@ class PizzaApp extends Component {
             <Route exact path='/' render={(props) =>
               <Home {...props}
                 updatePostcode={this.updatePostcode} />} />
-                 <Route exact path='/menu' component={Menu} />
+            <Route exact path='/menu' component={Menu} />
           </Switch>
         </Fragment>
       </BrowserRouter>
