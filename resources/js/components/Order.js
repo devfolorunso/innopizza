@@ -49,7 +49,7 @@ class Order extends Component {
 
 
           <Modal.Content image>
-            <Image wrapped size='medium' src={`/storage/${this.props.order.image}`} />
+            <Image wrapped size='medium' src={'http://innopizza.s3-eu-west-2.amazonaws.com/'+this.props.pizza.image}/>
 
 
             <Modal.Description>
