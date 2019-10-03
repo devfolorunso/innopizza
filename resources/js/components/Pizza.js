@@ -1,14 +1,8 @@
 import React, { Component } from 'react';
 import { Grid, Image, Button, Label, Segment, Header } from 'semantic-ui-react';
 import { formatPrice } from '../formatcurrency';
-// import { Storage } from 'aws-amplify';
-
-
 import PropTypes from 'prop-types';
-
-
 import Order from './Order';
-
 
 class Pizza extends Component {
 	state = {
@@ -26,19 +20,18 @@ class Pizza extends Component {
 
 
 	render() {
-		// let image = Storage.get(this.props.pizza.image)
 		return (
 			<Grid.Column mobile={5} tablet={8} computer={5}>
 				<Segment id='pizza-card' raised>
 					<Label color='orange' ribbon>
 						<Header as='h5'> {this.props.pizza.name}</Header>
 					</Label>
-					<Image src={this.props.pizza.image} />
+					<Image src={'http://innopizza.s3-eu-west-2.amazonaws.com/' + this.props.pizza.image} />
 					<p id="pizza-description">{this.props.pizza.description}</p>
 					<div id="pizza-order-btns">
 						<Button onClick={this.placeOrder} color='teal' floated="left">
 							Order Now
-							</Button>
+						</Button>
 
 						<Label as='a' color='red' tag>
 							<Header as='h5'>{formatPrice(this.props.pizza.amount)}</Header>
