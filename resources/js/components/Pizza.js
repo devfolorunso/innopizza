@@ -26,7 +26,7 @@ class Pizza extends Component {
 					<Label color='orange' ribbon>
 						<Header as='h5'> {this.props.pizza.name}</Header>
 					</Label>
-					<Image src={'http://innopizza.s3-eu-west-2.amazonaws.com/' + this.props.pizza.image} />
+					<Image src={'http://innopizza.s3-eu-west-2.amazonaws.com/'+this.props.pizza.image} />
 					<p id="pizza-description">{this.props.pizza.description}</p>
 					<div id="pizza-order-btns">
 						<Button onClick={this.placeOrder} color='teal' floated="left">
