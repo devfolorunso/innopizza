@@ -22,7 +22,7 @@ Route::get('admin/addpizza', 'PizzaController@create');
 Route::get('admin/category',  'AdminController@categories');
 
 // Delete//
-Route::delete('/admin/category/{id}', 'AdminController@destroy');
+Route::delete('/category/{id}', 'AdminController@destroy');
 Route::delete('/addpizza/{id}', 'PizzaController@destroy');
 
 // React Router Path//
