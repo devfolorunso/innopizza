@@ -88,7 +88,7 @@ class Order extends Component {
                 image="/media/logo.png"
                 panelLabel="Finalize Payment"
                 amount={this.state.totalAmount * 100}
-                currency="USD"
+                currency="EUR"
                 locale="en"
                 shippingAddress={true}
                 billingAddress={true}>

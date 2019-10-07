@@ -6,7 +6,6 @@ use App\Pizza;
 use App\Category;
 use App\Http\Requests;
 use Illuminate\Http\Request;
-// use Intervention\Image\Facades\Image;
 use App\Http\Resources\PizzaResource;
 use Illuminate\Support\Facades\Storage;
 
@@ -51,12 +50,6 @@ class PizzaController extends Controller
             'amount' => 'required',
             'image' => ['required','image','max:1999'],
         ]);
-        // $imagePath = request('image')->store('pizza','s3');
-
-        // $image = Image::make(("s3/{$imagePath}"))->fit(600,300);
-        
-        // $image->save();
-               //get filename with extension
 
        if($request->hasFile('image')) {
  
@@ -89,6 +82,7 @@ class PizzaController extends Controller
         // return response()->json('Pizza created!');
         return back();
     }
+
 
     /**
      * Display the specified resource.
@@ -126,6 +120,7 @@ class PizzaController extends Controller
         //
     }
 
+    
     /**
      * Remove the specified resource from storage.
      *
