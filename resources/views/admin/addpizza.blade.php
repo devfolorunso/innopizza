@@ -193,9 +193,9 @@
                         <div class="card py-2">
                             <h4 class="card-title text-center">{{$pizza->name}}</h4>
                             @php
-                            $image = Storage::disk('s3')->url($pizza->image);
+                            $image = $pizza->image;
                             @endphp
-                        
+
                             <img src="{{$image}}" class="card-img-top" alt="">
                             <div class="card-body">
                                 <span class="float-right tag">£ {{$pizza->amount}}</span>
@@ -224,7 +224,7 @@
                             },
 
                             success: function(data) {
-                                location.reload(); 
+                                location.reload();
                             }
                         });
                     });
