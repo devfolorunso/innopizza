@@ -1,6 +1,6 @@
 {
-    "name": "innoPizza",
-    "type": "application",
+    "name": "laravel/laravel",
+    "type": "project",
     "description": "A Pizza Ordering app made with laravel & react",
     "keywords": [
         "Pizza Ordering app",
