@@ -1,10 +1,12 @@
 {
-    "name": "laravel/laravel",
-    "type": "project",
-    "description": "The Laravel Framework.",
+    "name": "innoPizza",
+    "type": "application",
+    "description": "A Pizza Ordering app made with laravel & react",
     "keywords": [
-        "framework",
-        "laravel"
+        "Pizza Ordering app",
+        "laravel pizza ordering",
+        "laravel react pizza ordering",
+        "react pizza ordering"
     ],
     "license": "MIT",
     "require": {
@@ -13,6 +15,7 @@
         "fideloper/proxy": "^4.0",
         "illuminate/support": "^6.0",
         "intervention/image": "^2.5",
+        "jrm2k6/cloudder": "^0.6.0",
         "laravel/framework": "^6.0",
         "laravel/tinker": "^1.0",
         "league/flysystem-aws-s3-v3": "~1.0"
