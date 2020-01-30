@@ -18,40 +18,39 @@ class Pizza extends Component {
         }, 1000);
     };
 
-    render() {
-        return (
-            <Grid.Column mobile={5} tablet={8} computer={5}>
-                <Segment id="pizza-card" raised>
-                    <Label color="orange" ribbon>
-                        <Header as="h5"> {this.props.pizza.name}</Header>
-                    </Label>
-                    <Image src={this.props.pizza.image} />
-                    <p id="pizza-description">{this.props.pizza.description}</p>
-                    <div id="pizza-order-btns">
-                        <Button
-                            onClick={this.placeOrder}
-                            color="teal"
-                            floated="left"
-                        >
-                            Order Now
-                        </Button>
+    // render() {
+    //     return (
+    //         // <Grid.Column mobile={5} tablet={8} computer={5}>
+    //         //     <Segment id="pizza-card" raised>
+    //         //         <Label color="orange" ribbon>
+    //         //             <Header as="h5"> {this.props.pizza.name}</Header>
+    //         //         </Label>
+    //         //         <Image src={this.props.pizza.image} />
+    //         //         <p id="pizza-description">{this.props.pizza.description}</p>
+    //         //         <div id="pizza-order-btns">
+    //         //             <Button
+    //         //                 onClick={this.placeOrder}
+    //         //                 color="teal"
+    //         //                 floated="left">
+    //         //                 Order Now
+    //         //             </Button>
 
-                        <Label as="a" color="red" tag>
-                            <Header as="h5">
-                                {formatPrice(this.props.pizza.amount)}
-                            </Header>
-                        </Label>
-                    </div>
+    //         //             <Label as="a" color="red" tag>
+    //         //                 <Header as="h5">
+    //         //                     {formatPrice(this.props.pizza.amount)}
+    //         //                 </Header>
+    //         //             </Label>
+    //         //         </div>
 
-                    <Order
-                        open={this.state.orderShow}
-                        order={this.state.orderItem}
-                        close={() => this.setState({ orderShow: false })}
-                    />
-                </Segment>
-            </Grid.Column>
-        );
-    }
+    //         //         <Order
+    //         //             open={this.state.orderShow}
+    //         //             order={this.state.orderItem}
+    //         //             close={() => this.setState({ orderShow: false })}
+    //         //         />
+    //         //     </Segment>
+    //         // </Grid.Column>
+    //     );
+    // }
 }
 
 Pizza.propTypes = {
